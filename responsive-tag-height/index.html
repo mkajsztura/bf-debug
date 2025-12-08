@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div style="position: absolute; min-width: 100%; min-height: 100%; overflow: hidden">
+            <div
+                id="bf-creative"
+                style="
+                    min-height: 100%;
+                    min-width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    transform-origin: left top;
+                "
+            ></div>
+        </div>
+        <script>
+            (function () {
+                var creativeSelector = "#bf-creative";
+                var creative = document.querySelector(creativeSelector);
+                var scr = document.createElement("script");
+                scr.src =
+                    "https://c.bannerflow.net/a/67ed38017ad7131e89c5af97?did=60129eabeb4fa5faa7ef27fc&deeplink=on&responsive=on&redirecturl=${CLICK_URL_ENC}&domain=${REFERER_URL_ENC}&container=" +
+                    encodeURIComponent(creativeSelector);
+                document.head.appendChild(scr);
+                var ratio = 640 / 1136;
+                creative.style.aspectRatio = ratio;
+            })();
+        </script>
+    </body>
+</html>

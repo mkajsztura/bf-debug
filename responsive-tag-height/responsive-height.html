@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div style="width: 300px; height: 400px; background: cornflowerblue"></div>
+        <div style="position: absolute; min-width: 100%; min-height: 100%; overflow: hidden">
+            <div
+                id="bf-creative"
+                style="
+                    min-height: 100%;
+                    min-width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    transform-origin: left top;
+                "
+            ></div>
+        </div>
+        <script>
+        (function () {
+            var creativeSelector = "#bf-creative";
+            var creative = document.querySelector(creativeSelector);
+
+            var scr = document.createElement("script");
+            scr.src = "https://c.bannerflow.net/a/692d83d52fe4bb03b2d88556?did=5d7106ae39d71e0001cd1b68&deeplink=on&responsive=on&redirecturl=%%CLICK_URL_ESC%%&cb=%%CACHEBUSTER%%&container="
+                + encodeURIComponent(creativeSelector);
+            document.head.appendChild(scr);
+
+            // Cover scaling to fill viewport on all devices
+            function resize() {
+                var ratio = 1920 / 1080;
+                var vw = window.innerWidth;
+                var vh = window.innerHeight;
+                if (vw / vh > ratio) {
+                    creative.style.width = vw + "px";
+                    creative.style.height = (vw / ratio) + "px";
+                } else {
+                    creative.style.height = vh + "px";
+                    creative.style.width = (vh * ratio) + "px";
+                }
+            }
+
+            window.addEventListener("resize", resize);
+            resize();
+        })();
+        
+        </script>
+    </body>
+</html>
