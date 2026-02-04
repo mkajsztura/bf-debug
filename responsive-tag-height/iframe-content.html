@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <div id="bf-creative">
+            <div>Iframe content yolo2</div>
+        </div>
+        <script>
+            var ratio = 1920 / 1080;
+            var creative = document.getElementById("bf-creative");
+            function resize() {
+                console.log("resize", window.innerHeight);
+                var width = window.innerWidth;
+                var height = window.innerHeight;
+                if (width / height > ratio) {
+                    creative.style.width = width + "px";
+                    creative.style.height = width / ratio + "px";
+                } else {
+                    creative.style.height = height + "px";
+                    creative.style.width = height * ratio + "px";
+                }
+            }
+            window.addEventListener("resize", resize);
+            const ro = new ResizeObserver(() => {
+				console.log('resize observer');
+                resize();
+            });
+            ro.observe(document.documentElement);
+            resize();
+        </script>
+    </body>
+</html>

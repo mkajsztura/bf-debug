@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Single-file Iframe Simulation</title>
+        <style>
+            .parallax-iframe {
+                width: 100% !important;
+                height: 100% !important;
+                height: 100lvh !important;
+                bottom: 0;
+                left: 0;
+                position: fixed;
+                background-color: brown;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Single-file iframe height simulation</h2>
+        <div class="frame-wrap">
+            <iframe
+                width="320"
+                height="250"
+                id="ad-frame"
+                title="3rd party ad content"
+                scrolling="no"
+                marginwidth="0"
+                marginheight="0"
+                src="https://bfstudiosandbox.blob.core.windows.net/static-assets/test/mati/iframe-content.html"
+            ></iframe>
+        </div>
+        <script>
+            var iframe = document.getElementById("ad-frame");
+            setTimeout(function () {
+                iframe.classList.add("parallax-iframe");
+            }, 1000);
+        </script>
+    </body>
+</html>
